@@ -375,21 +375,21 @@
 
               <div class="relative h-64">
                 <!-- Grid lines container -->
-                <div class="absolute inset-0 flex flex-col justify-between px-8 py-6 pointer-events-none">
+                <div class="absolute inset-0 flex flex-col justify-between px-10 py-6 pointer-events-none">
                   <div class="w-full border-t border-gray-200 dark:border-gray-700">
-                    <span class="absolute -left-4 -mt-2.5 text-xs text-gray-500 dark:text-gray-400">100%</span>
+                    <span class="absolute -left-3 -mt-2.5 text-xs text-gray-500 dark:text-gray-400">100%</span>
                   </div>
                   <div class="w-full border-t border-gray-200 dark:border-gray-700">
-                    <span class="absolute -left-4 -mt-2.5 text-xs text-gray-500 dark:text-gray-400">75%</span>
+                    <span class="absolute -left-3 -mt-2.5 text-xs text-gray-500 dark:text-gray-400">75%</span>
                   </div>
                   <div class="w-full border-t border-gray-200 dark:border-gray-700">
-                    <span class="absolute -left-4 -mt-2.5 text-xs text-gray-500 dark:text-gray-400">50%</span>
+                    <span class="absolute -left-3 -mt-2.5 text-xs text-gray-500 dark:text-gray-400">50%</span>
                   </div>
                   <div class="w-full border-t border-gray-200 dark:border-gray-700">
-                    <span class="absolute -left-4 -mt-2.5 text-xs text-gray-500 dark:text-gray-400">25%</span>
+                    <span class="absolute -left-3 -mt-2.5 text-xs text-gray-500 dark:text-gray-400">25%</span>
                   </div>
                   <div class="w-full border-t border-gray-200 dark:border-gray-700">
-                    <span class="absolute -left-4 -mt-2.5 text-xs text-gray-500 dark:text-gray-400">0%</span>
+                    <span class="absolute -left-3 -mt-2.5 text-xs text-gray-500 dark:text-gray-400">0%</span>
                   </div>
                 </div>
                 <!-- Chart bars container -->
@@ -430,10 +430,8 @@
                         x="18"
                         y="20.5"
                         text-anchor="middle"
-                        class="text-sm font-semibold fill-current text-gray-800 dark:text-white"
-                      >
-                        60%
-                      </text>
+                        class="text-xs font-semibold fill-current text-gray-800 dark:text-white"
+                      ></text>
                     </svg>
                   </div>
                 </div>
@@ -971,11 +969,11 @@
     <!-- Modal Tambah Kebiasaan -->
     <div
       id="tambah-kebiasaan-modal"
-      class="fixed inset-0 z-[60] hidden"
+      class="fixed inset-0 z-50 hidden"
       aria-hidden="true"
     >
       <div
-        class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm transition-opacity"
+        class="fixed inset-0 bg-white/30 dark:bg-gray-900/30 backdrop-blur-lg backdrop-saturate-150 backdrop-brightness-110 transition-opacity"
         id="modal-backdrop"
       ></div>
       <div class="fixed inset-0 z-10 overflow-y-auto">
@@ -1476,13 +1474,22 @@
         const openModalBtn = document.getElementById('tambah-kebiasaan-btn');
         const closeModalBtn = document.getElementById('close-modal');
         const modalBackdrop = document.getElementById('modal-backdrop');
-
         // Modal controls
         openModalBtn?.addEventListener('click', () => modal.classList.remove('hidden'));
         closeModalBtn?.addEventListener('click', () => modal.classList.add('hidden'));
-        modalBackdrop?.addEventListener('click', () => modal.classList.add('hidden'));
 
-        // Load saved data
+        // Solusi utama: klik di luar form (area modal, bukan form) menutup modal
+        modal.addEventListener('mousedown', function (e) {
+          // Tutup modal jika klik pada backdrop atau area kosong di luar form
+          if (
+            e.target === modal ||
+            e.target === modalBackdrop ||
+            e.target.classList.contains('fixed') // klik pada area fixed di luar form
+          ) {
+            modal.classList.add('hidden');
+          }
+        });
+
         loadHabitData();
       }
 
