@@ -43,6 +43,10 @@
     <!-- feather icons -->
     <script src="https://unpkg.com/feather-icons"></script>
     <title>Motivato</title>
+
+    <!-- Flatpickr CSS and JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   </head>
   <body class="bg-white dark:bg-gray-900 font-poppins transition-all duration-200">
     <nav class="bg-white border-gray-200 dark:bg-gray-900 relative drop-shadow-sm dark:lg:drop-shadow-lg">
@@ -236,7 +240,7 @@
                   class="hidden w-5 h-5"
                   fill="currentColor"
                   viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns="http://www.w3.org/svg"
                 >
                   <path
                     d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 0 0 8 0zm-.464 4.95l.707.707a1 1 0 0 1-1.414-1.414l-.707-.707a1 1 0 0 0-1.414 1.414zm2.12-10.607a1 1 0 0 1 0 1.414l-.706.707a1 1 0 1 1-1.414-1.414l.707-.707a1 1 0 0 1 1.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
@@ -288,7 +292,7 @@
                   id="fi_1946552"
                 >
                   <path
-                    d="m432.734375 112.464844c-53.742187 0-97.464844-43.722656-97.464844-97.464844 0-8.285156-6.71875-15-15-15h-80.335937c-8.285156 0-15 6.714844-15 15v329.367188c0 31.59375-25.703125 57.296874-57.300782 57.296874-31.59375 0-57.296874-25.703124-57.296874-57.296874 0-31.597657 25.703124-57.300782 57.296874-57.300782 8.285157 0 15-6.714844 15-15v-80.335937c0-8.28125-6.714843-15-15-15-92.433593 0-167.632812 75.203125-167.632812 167.636719 0 92.433593 75.199219 167.632812 167.632812 167.632812 92.433594 0 167.636719-75.199219 167.636719-167.632812v-145.792969c29.855469 15.917969 63.074219 24.226562 97.464844 24.226562 8.285156 0 15-6.714843 15-15v-80.335937c0-8.28125-6.714844-15-15-15zm-15 79.714844c-32.023437-2.664063-62.433594-13.851563-88.707031-32.75-4.566406-3.289063-10.589844-3.742188-15.601563-1.171876-5.007812 2.5625-8.15625 7.71875-8.15625 13.347657v172.761719c0 75.890624-61.746093 137.632812-137.636719 137.632812-75.890624 0-137.632812-61.742188-137.632812-137.632812 0-70.824219 53.773438-129.328126 122.632812-136.824219v50.8125c-41.015624 7.132812-72.296874 42.984375-72.296874 86.011719 0 48.136718 39.160156 87.300781 87.296874 87.300781 48.140626 0 87.300782-39.164063 87.300782-87.300781v-314.367188h51.210937c6.871094 58.320312 53.269531 104.71875 111.589844 111.589844zm0 0"
+                    d="m432.734375 112.464844c-53.742187 0-97.464844-43.722656-97.464844-97.464844 0-8.285156-6.71875-15-15-15h-80.335937c-8.285156 0-15 6.714844-15 15v329.367188c0 31.59375-25.703125 57.296874-57.300782 57.296874-31.59375 0-57.296874-25.703124-57.296874-57.296874 0-31.597657 25.703124-57.300782 122.632812-136.824219v50.8125c-41.015624 7.132812-72.296874 42.984375-72.296874 86.011719 0 48.136718 39.160156 87.300781 87.296874 87.300781 48.140626 0 87.300782-39.164063 87.300782-87.300781v-314.367188h51.210937c6.871094 58.320312 53.269531 104.71875 111.589844 111.589844zm0 0"
                   ></path>
                 </svg>
                 <span class="sr-only">Tiktok</span>
@@ -396,7 +400,7 @@
                 <div class="absolute inset-0 px-12 py-6">
                   <div
                     id="chart-bars"
-                    class="relative w-full h-full"
+                    class="relative w-full h-full flex gap-x-1 sm:gap-x-2 justify-between items-end"
                   ></div>
                 </div>
               </div>
@@ -456,188 +460,10 @@
           </div>
         </div>
 
-        <!-- Calendar -->
-        <div class="mt-8 bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md">
-          <div class="flex justify-between items-center mb-4">
-            <h3 class="text-xl font-semibold text-dark dark:text-white">Kalender Kebiasaan</h3>
-            <div class="flex space-x-2">
-              <button class="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 p-1 rounded">
-                <svg
-                  class="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M15 19l-7-7 7-7"
-                  ></path>
-                </svg>
-              </button>
-              <span class="text-gray-600 dark:text-gray-300 flex items-center">November 2023</span>
-              <button class="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 p-1 rounded">
-                <svg
-                  class="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 5l7 7-7 7"
-                  ></path>
-                </svg>
-              </button>
-            </div>
-          </div>
+       
+        
 
-          <!-- Calendar Grid -->
-          <div class="grid grid-cols-7 gap-1 text-center mb-2">
-            <div class="text-sm font-medium text-gray-500 dark:text-gray-400">Min</div>
-            <div class="text-sm font-medium text-gray-500 dark:text-gray-400">Sen</div>
-            <div class="text-sm font-medium text-gray-500 dark:text-gray-400">Sel</div>
-            <div class="text-sm font-medium text-gray-500 dark:text-gray-400">Rab</div>
-            <div class="text-sm font-medium text-gray-500 dark:text-gray-400">Kam</div>
-            <div class="text-sm font-medium text-gray-500 dark:text-gray-400">Jum</div>
-            <div class="text-sm font-medium text-gray-500 dark:text-gray-400">Sab</div>
-          </div>
-
-          <div class="grid grid-cols-7 gap-1">
-            <!-- Week 1 -->
-            <div class="h-16 p-1 border border-gray-200 dark:border-gray-700 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-400">29</div>
-            <div class="h-16 p-1 border border-gray-200 dark:border-gray-700 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-400">30</div>
-            <div class="h-16 p-1 border border-gray-200 dark:border-gray-700 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-400">31</div>
-            <div class="h-16 p-1 border border-gray-200 dark:border-gray-700 rounded-md">
-              <div class="text-sm text-gray-700 dark:text-gray-300">1</div>
-              <div class="flex mt-1">
-                <div class="w-2 h-2 rounded-full bg-primary mx-0.5"></div>
-                <div class="w-2 h-2 rounded-full bg-secondary mx-0.5"></div>
-              </div>
-            </div>
-            <div class="h-16 p-1 border border-gray-200 dark:border-gray-700 rounded-md">
-              <div class="text-sm text-gray-700 dark:text-gray-300">2</div>
-              <div class="flex mt-1">
-                <div class="w-2 h-2 rounded-full bg-primary mx-0.5"></div>
-                <div class="w-2 h-2 rounded-full bg-accent mx-0.5"></div>
-              </div>
-            </div>
-            <div class="h-16 p-1 border border-gray-200 dark:border-gray-700 rounded-md">
-              <div class="text-sm text-gray-700 dark:text-gray-300">3</div>
-              <div class="flex mt-1">
-                <div class="w-2 h-2 rounded-full bg-primary mx-0.5"></div>
-              </div>
-            </div>
-            <div class="h-16 p-1 border border-gray-200 dark:border-gray-700 rounded-md">
-              <div class="text-sm text-gray-700 dark:text-gray-300">4</div>
-              <div class="flex mt-1">
-                <div class="w-2 h-2 rounded-full bg-secondary mx-0.5"></div>
-                <div class="w-2 h-2 rounded-full bg-accent mx-0.5"></div>
-              </div>
-            </div>
-
-            <!-- Week 2 -->
-            <div class="h-16 p-1 border border-gray-200 dark:border-gray-700 rounded-md">
-              <div class="text-sm text-gray-700 dark:text-gray-300">5</div>
-              <div class="flex mt-1">
-                <div class="w-2 h-2 rounded-full bg-primary mx-0.5"></div>
-                <div class="w-2 h-2 rounded-full bg-purple-500 mx-0.5"></div>
-              </div>
-            </div>
-            <div class="h-16 p-1 border border-gray-200 dark:border-gray-700 rounded-md">
-              <div class="text-sm text-gray-700 dark:text-gray-300">6</div>
-              <div class="flex mt-1">
-                <div class="w-2 h-2 rounded-full bg-primary mx-0.5"></div>
-                <div class="w-2 h-2 rounded-full bg-secondary mx-0.5"></div>
-                <div class="w-2 h-2 rounded-full bg-purple-500 mx-0.5"></div>
-              </div>
-            </div>
-            <div class="h-16 p-1 border border-gray-200 dark:border-gray-700 rounded-md">
-              <div class="text-sm text-gray-700 dark:text-gray-300">7</div>
-              <div class="flex mt-1">
-                <div class="w-2 h-2 rounded-full bg-purple-500 mx-0.5"></div>
-              </div>
-            </div>
-            <div class="h-16 p-1 border border-gray-200 dark:border-gray-700 rounded-md">
-              <div class="text-sm text-gray-700 dark:text-gray-300">8</div>
-              <div class="flex mt-1">
-                <div class="w-2 h-2 rounded-full bg-primary mx-0.5"></div>
-                <div class="w-2 h-2 rounded-full bg-accent mx-0.5"></div>
-                <div class="w-2 h-2 rounded-full bg-purple-500 mx-0.5"></div>
-              </div>
-            </div>
-            <div class="h-16 p-1 border border-gray-200 dark:border-gray-700 rounded-md">
-              <div class="text-sm text-gray-700 dark:text-gray-300">9</div>
-              <div class="flex mt-1">
-                <div class="w-2 h-2 rounded-full bg-purple-500 mx-0.5"></div>
-              </div>
-            </div>
-            <div class="h-16 p-1 border border-gray-200 dark:border-gray-700 rounded-md bg-primary bg-opacity-10 dark:bg-opacity-20">
-              <div class="text-sm text-gray-700 dark:text-gray-300">10</div>
-              <div class="flex mt-1">
-                <div class="w-2 h-2 rounded-full bg-primary mx-0.5"></div>
-                <div class="w-2 h-2 rounded-full bg-secondary mx-0.5"></div>
-                <div class="w-2 h-2 rounded-full bg-purple-500 mx-0.5"></div>
-              </div>
-            </div>
-            <div class="h-16 p-1 border border-gray-200 dark:border-gray-700 rounded-md">
-              <div class="text-sm text-gray-700 dark:text-gray-300">11</div>
-              <div class="flex mt-1">
-                <div class="w-2 h-2 rounded-full bg-purple-500 mx-0.5"></div>
-              </div>
-            </div>
-
-            <!-- Additional weeks -->
-            <div class="h-16 p-1 border border-gray-200 dark:border-gray-700 rounded-md">
-              <div class="text-sm text-gray-700 dark:text-gray-300">12</div>
-            </div>
-            <div class="h-16 p-1 border border-gray-200 dark:border-gray-700 rounded-md">
-              <div class="text-sm text-gray-700 dark:text-gray-300">13</div>
-            </div>
-            <div class="h-16 p-1 border border-gray-200 dark:border-gray-700 rounded-md">
-              <div class="text-sm text-gray-700 dark:text-gray-300">14</div>
-            </div>
-            <div class="h-16 p-1 border border-gray-200 dark:border-gray-700 rounded-md">
-              <div class="text-sm text-gray-700 dark:text-gray-300">15</div>
-            </div>
-            <div class="h-16 p-1 border border-gray-200 dark:border-gray-700 rounded-md">
-              <div class="text-sm text-gray-700 dark:text-gray-300">16</div>
-            </div>
-            <div class="h-16 p-1 border border-gray-200 dark:border-gray-700 rounded-md">
-              <div class="text-sm text-gray-700 dark:text-gray-300">17</div>
-            </div>
-            <div class="h-16 p-1 border border-gray-200 dark:border-gray-700 rounded-md">
-              <div class="text-sm text-gray-700 dark:text-gray-300">18</div>
-            </div>
-          </div>
-
-          <!-- Legend -->
-          <div class="mt-4 flex flex-wrap gap-4">
-            <div class="flex items-center">
-              <div class="w-3 h-3 rounded-full bg-primary mr-2"></div>
-              <span class="text-sm text-gray-600 dark:text-gray-400">Meditasi Pagi</span>
-            </div>
-            <div class="flex items-center">
-              <div class="w-3 h-3 rounded-full bg-secondary mr-2"></div>
-              <span class="text-sm text-gray-600 dark:text-gray-400">Olahraga</span>
-            </div>
-            <div class="flex items-center">
-              <div class="w-3 h-3 rounded-full bg-accent mr-2"></div>
-              <span class="text-sm text-gray-600 dark:text-gray-400">Membaca</span>
-            </div>
-            <div class="flex items-center">
-              <div class="w-3 h-3 rounded-full bg-purple-500 mr-2"></div>
-              <span class="text-sm text-gray-600 dark:text-gray-400">Belajar Coding</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        
 
     <footer class="bg-white rounded-lg shadow-lg m-4 dark:bg-gray-800">
       <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
@@ -778,50 +604,79 @@
           }
         }
 
-        // Tambahkan log untuk debugging
-        console.log('Dark mode toggled');
-        console.log('Current class list:', document.documentElement.classList);
+        
       });
     </script>
 
     <!-- Core JS -->
     <script>
-      // Inisialisasi data
-      let habitData = {
-        habits: [],
-      };
+      
 
       // Fungsi untuk menyimpan data
       function saveHabitData() {
         localStorage.setItem('habitData', JSON.stringify(habitData));
-        updateStats();
-        updateWeeklyChart();
-        updatePieChart();
-        renderHabitList();
+        renderAll();
       }
 
       // Fungsi untuk memuat data
       function loadHabitData() {
-        const savedData = localStorage.getItem('habitData');
-        if (savedData) {
-          habitData = JSON.parse(savedData);
+        const saved = localStorage.getItem('habitData');
+        habitData = saved ? JSON.parse(saved) : { habits: [] };
+        habitData.habits = habitData.habits.map(normalizeHabit);
+      }
 
-          habitData.habits.forEach((habit) => {
-            if (!habit.selectedDays) {
-              // fallback: anggap semua hari aktif jika tidak ada selectedDays
-              habit.selectedDays = [0, 1, 2, 3, 4, 5, 6];
-              habit.days = Array(7).fill(false);
-              habit.targetDays = 7;
-            }
-            if (!habit.days || habit.days.length !== habit.selectedDays.length) {
-              habit.days = Array(habit.selectedDays.length).fill(false);
-            }
-          });
-          renderHabitList();
-          updateStats();
-          updateWeeklyChart();
-          updatePieChart();
+      // Fungsi untuk membuat habit baru
+      function createHabit(name, color, selectedDays, reminderTime) {
+        habitData.habits.push(normalizeHabit({
+          id: Date.now(),
+          name,
+          color,
+          selectedDays,
+          days: Array(selectedDays.length).fill(false),
+          targetDays: selectedDays.length,
+          completedDays: 0,
+          reminderTime: reminderTime || '',
+        }));
+        saveHabitData();
+      }
+
+      // Fungsi untuk memperbarui habit
+      function updateHabit(id, { name, color, selectedDays, reminderTime }) {
+        const h = habitData.habits.find(h => h.id === id);
+        if (!h) return;
+        h.name = name;
+        h.color = color;
+        h.selectedDays = selectedDays;
+        h.targetDays = selectedDays.length;
+        h.reminderTime = reminderTime;
+        if (!h.days || h.days.length !== selectedDays.length) {
+          h.days = Array(selectedDays.length).fill(false);
+          h.completedDays = 0;
         }
+        saveHabitData();
+      }
+
+      // Fungsi untuk menghapus habit
+      function deleteHabit(id) {
+        habitData.habits = habitData.habits.filter(h => h.id !== id);
+        saveHabitData();
+      }
+
+      // Fungsi untuk toggle status penyelesaian kebiasaan
+      function toggleHabitCompletion(habitId, dayIndex) {
+        const h = habitData.habits.find(h => h.id === habitId);
+        if (!h) return;
+        h.days[dayIndex] = !h.days[dayIndex];
+        h.completedDays = h.days.filter(Boolean).length;
+        saveHabitData();
+      }
+
+      // Render utama
+      function renderAll() {
+        renderHabitList();
+        updateStats();
+        updateWeeklyChart();
+        updatePieChart();
       }
 
       // Fungsi untuk render daftar kebiasaan dengan checkbox harian
@@ -840,81 +695,42 @@
           return;
         }
 
-        const daysOfWeek = ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Min'];
-
-        habitData.habits.forEach((habit) => {
-          if (!habit.selectedDays) {
-            habit.selectedDays = [0, 1, 2, 3, 4, 5, 6];
-            habit.days = Array(7).fill(false);
-            habit.targetDays = 7;
-          }
-          const habitElement = document.createElement('div');
-          habitElement.className = 'bg-gray-50 dark:bg-gray-800 rounded-lg p-4 flex flex-col gap-4 mb-3';
-
-          // Main habit info
-          const habitInfo = document.createElement('div');
-          habitInfo.className = 'flex items-center justify-between';
-
-          // Left side with name and progress
-          const leftSide = document.createElement('div');
-          leftSide.className = 'flex items-center gap-3 flex-1';
-          leftSide.innerHTML = `
-            <div>
-              <h4 class="font-medium text-gray-900 dark:text-white">${habit.name}</h4>
-              <p class="text-sm text-gray-500 dark:text-gray-400">${habit.completedDays}/${habit.targetDays} hari</p>
-            </div>
-          `;
-
-          // Right side with progress bar and delete button
-          const rightSide = document.createElement('div');
-          rightSide.className = 'flex items-center gap-4';
-          rightSide.innerHTML = `
-            <div class="w-32 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-              <div class="${habit.color} h-2 rounded-full transition-all duration-300" 
-                   style="width: ${(habit.completedDays / habit.targetDays) * 100}%">
+        habitData.habits.forEach(habit => {
+          const h = normalizeHabit(habit);
+          const el = document.createElement('div');
+          el.className = 'bg-gray-50 dark:bg-gray-800 rounded-lg p-4 flex flex-col gap-4 mb-3';
+          el.innerHTML = `
+            <div class='flex items-center justify-between'>
+              <div class='flex items-center gap-3 flex-1'>
+                <div>
+                  <h4 class='font-medium text-gray-900 dark:text-white'>${h.name}</h4>
+                  <p class='text-sm text-gray-500 dark:text-gray-400'>${h.completedDays}/${h.targetDays} hari</p>
+                </div>
+              </div>
+              <div class='flex items-center gap-4'>
+                <div class='w-32 bg-gray-200 dark:bg-gray-700 rounded-full h-2'>
+                  <div class='${h.color} h-2 rounded-full transition-all duration-300' style='width: ${(h.completedDays / h.targetDays) * 100}%'></div>
+                </div>
+                <button onclick='showEditHabit(${h.id})' aria-label='Edit kebiasaan' class='p-2 rounded hover:bg-blue-100 dark:hover:bg-blue-900 text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 mr-2 focus:outline-none focus:ring-2 focus:ring-blue-400'>
+                  <svg xmlns='http://www.w3.org/2000/svg' class='w-5 h-5' fill='none' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2'><path stroke-linecap='round' stroke-linejoin='round' d='M12 20h9'/><path stroke-linecap='round' stroke-linejoin='round' d='M16.5 3.5a2.121 2.121 0 113 3L7 19.5 3 21l1.5-4L16.5 3.5z'/></svg>
+                </button>
+                <button onclick='showDeleteConfirmation(${h.id})' aria-label='Hapus kebiasaan' class='p-2 rounded hover:bg-red-100 dark:hover:bg-red-900 text-red-600 hover:text-red-700 dark:text-red-500 dark:hover:text-red-400 focus:outline-none focus:ring-2 focus:ring-red-400'>
+                  <svg xmlns='http://www.w3.org/2000/svg' class='w-5 h-5' fill='none' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2'><polyline points='3 6 5 6 21 6'/><path d='M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2'/><line x1='10' y1='11' x2='10' y2='17'/><line x1='14' y1='11' x2='14' y2='17'/></svg>
+                </button>
               </div>
             </div>
-            <button onclick="deleteHabit(${habit.id})"
-                    class="text-red-600 hover:text-red-700 dark:text-red-500 dark:hover:text-red-400">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-              </svg>
-            </button>
+            <div class='flex flex-row flex-wrap gap-10'>
+              ${h.selectedDays.map((dayIdx, i) => `
+                <div class='flex flex-col items-center'>
+                  <div class='w-8 h-8 flex items-center justify-center rounded-lg cursor-pointer ${h.days[i] ? h.color + ' text-white' : 'bg-gray-100 dark:bg-gray-700'} hover:opacity-80 transition-all duration-200' onclick='toggleHabitCompletion(${h.id},${i})'>
+                    ${h.days[i] ? `<svg class='w-5 h-5' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 13l4 4L19 7'></path></svg>` : ''}
+                  </div>
+                  <span class='text-xs text-gray-500 dark:text-white mt-1'>${daysOfWeek[dayIdx]}</span>
+                </div>
+              `).join('')}
+            </div>
           `;
-
-          habitInfo.appendChild(leftSide);
-          habitInfo.appendChild(rightSide);
-          habitElement.appendChild(habitInfo);
-
-          // Daily checkboxes hanya untuk hari yang dipilih
-          const checkboxesContainer = document.createElement('div');
-          checkboxesContainer.className = `grid grid-cols-${habit.targetDays} gap-2`;
-
-          habit.selectedDays.forEach((dayIdx, i) => {
-            const isChecked = habit.days[i];
-            const dayContainer = document.createElement('div');
-            dayContainer.className = 'flex flex-col items-center';
-
-            const checkbox = document.createElement('div');
-            checkbox.className = `
-              w-8 h-8 flex items-center justify-center rounded-lg cursor-pointer 
-              ${isChecked ? habit.color + ' text-white' : 'bg-gray-100 dark:bg-gray-700'}
-              hover:opacity-80 transition-all duration-200
-            `;
-            checkbox.onclick = () => toggleHabitCompletion(habit.id, i);
-            checkbox.innerHTML = isChecked ? '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>' : '';
-
-            const dayLabel = document.createElement('span');
-            dayLabel.className = 'text-xs text-gray-500 dark:text-white mt-1';
-            dayLabel.textContent = daysOfWeek[dayIdx];
-
-            dayContainer.appendChild(checkbox);
-            dayContainer.appendChild(dayLabel);
-            checkboxesContainer.appendChild(dayContainer);
-          });
-
-          habitElement.appendChild(checkboxesContainer);
-          container.appendChild(habitElement);
+          container.appendChild(el);
         });
 
         // Update diagrams after rendering
@@ -922,48 +738,7 @@
         updateWeeklyChart();
         updatePieChart();
       }
-    </script>
 
-    <script>
-      // Function to handle habit deletion
-      function deleteHabit(habitId) {
-        const habitToDelete = habitData.habits.find((h) => h.id === habitId);
-        if (!habitToDelete) return;
-
-        const index = habitData.habits.indexOf(habitToDelete);
-        habitData.habits.splice(index, 1);
-        saveHabitData();
-        renderHabitList();
-      }
-
-      // Load data when page loads
-      document.addEventListener('DOMContentLoaded', function () {
-        loadHabitData();
-        renderHabitList();
-      });
-    </script>
-
-    <script>
-      // Function to toggle habit completion status
-      function toggleHabitCompletion(habitId, dayIndex) {
-        const habit = habitData.habits.find((h) => h.id === habitId);
-        if (!habit) return;
-
-        // Toggle completion status
-        if (!habit.days) {
-          habit.days = Array(7).fill(false);
-        }
-
-        habit.days[dayIndex] = !habit.days[dayIndex];
-
-        // Update completedDays count
-        habit.completedDays = habit.days.filter((day) => day === true).length;
-
-        // Save changes and update UI
-        saveHabitData();
-        renderHabitList();
-        updateWeeklyProgress();
-      }
     </script>
 
     <!-- Modal Tambah Kebiasaan -->
@@ -973,11 +748,11 @@
       aria-hidden="true"
     >
       <div
-        class="fixed inset-0 bg-white/30 dark:bg-gray-900/30 backdrop-blur-lg backdrop-saturate-150 backdrop-brightness-110 transition-opacity"
+        class="fixed inset-0 bg-white/30 dark:bg-gray-900/30 backdrop-blur-sm backdrop-saturate-150 backdrop-brightness-110 transition-opacity"
         id="modal-backdrop"
       ></div>
       <div class="fixed inset-0 z-10 overflow-y-auto">
-        <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+        <div class="flex min-h-screen items-center justify-center p-4 text-center sm:items-center sm:p-0">
           <div class="relative transform overflow-hidden rounded-lg bg-white dark:bg-gray-800 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-md p-6">
             <div class="flex justify-between items-center mb-4">
               <h3 class="text-lg font-medium text-gray-900 dark:text-white">Tambah Kebiasaan Baru</h3>
@@ -1014,82 +789,38 @@
                   placeholder="Contoh: Berolahraga"
                   required
                 />
-              </div>
-              <div class="mb-4">
-                <label
-                  for="habit-target"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  >Target Hari Dalam Seminggu</label
-                >
-                <input
-                  type="number"
-                  id="habit-target"
-                  min="1"
-                  max="7"
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
-                  placeholder="1-7"
-                  required
-                />
-              </div>
+              </div>   
               <div class="mb-4">
                 <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pilih Hari</label>
-                <div class="flex flex-wrap gap-2">
-                  <label
-                    ><input
-                      type="checkbox"
-                      name="habit-days"
-                      value="0"
-                      class="mr-1"
-                    />Sen</label
-                  >
-                  <label
-                    ><input
-                      type="checkbox"
-                      name="habit-days"
-                      value="1"
-                      class="mr-1"
-                    />Sel</label
-                  >
-                  <label
-                    ><input
-                      type="checkbox"
-                      name="habit-days"
-                      value="2"
-                      class="mr-1"
-                    />Rab</label
-                  >
-                  <label
-                    ><input
-                      type="checkbox"
-                      name="habit-days"
-                      value="3"
-                      class="mr-1"
-                    />Kam</label
-                  >
-                  <label
-                    ><input
-                      type="checkbox"
-                      name="habit-days"
-                      value="4"
-                      class="mr-1"
-                    />Jum</label
-                  >
-                  <label
-                    ><input
-                      type="checkbox"
-                      name="habit-days"
-                      value="5"
-                      class="mr-1"
-                    />Sab</label
-                  >
-                  <label
-                    ><input
-                      type="checkbox"
-                      name="habit-days"
-                      value="6"
-                      class="mr-1"
-                    />Min</label
-                  >
+                <div class="flex gap-2">
+                  <label aria-label="Senin" class="cursor-pointer">
+                    <input type="checkbox" name="habit-days" value="0" class="sr-only peer pointer-events-auto" />
+                    <span class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-white font-semibold peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary transition-all duration-200 select-none">Sen</span>
+                  </label>
+                  <label aria-label="Selasa" class="cursor-pointer">
+                    <input type="checkbox" name="habit-days" value="1" class="sr-only peer pointer-events-auto" />
+                    <span class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-white font-semibold peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary transition-all duration-200 select-none">Sel</span>
+                  </label>
+                  <label aria-label="Rabu" class="cursor-pointer">
+                    <input type="checkbox" name="habit-days" value="2" class="sr-only peer pointer-events-auto" />
+                    <span class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-white font-semibold peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary transition-all duration-200 select-none">Rab</span>
+                  </label>
+                  <label aria-label="Kamis" class="cursor-pointer">
+                    <input type="checkbox" name="habit-days" value="3" class="sr-only peer pointer-events-auto" />
+                    <span class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-white font-semibold peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary transition-all duration-200 select-none">Kam</span>
+                  </label>
+                  <label aria-label="Jumat" class="cursor-pointer">
+                    <input type="checkbox" name="habit-days" value="4" class="sr-only peer pointer-events-auto" />
+                    <span class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-white font-semibold peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary transition-all duration-200 select-none">Jum</span>
+                  </label>
+                  <label aria-label="Sabtu" class="cursor-pointer">
+                    <input type="checkbox" name="habit-days" value="5" class="sr-only peer pointer-events-auto" />
+                    <span class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-white font-semibold peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary transition-all duration-200 select-none">Sab</span>
+                  </label>
+                  <label aria-label="Minggu" class="cursor-pointer">
+                    <input type="checkbox" name="habit-days" value="6" class="sr-only peer pointer-events-auto" />
+                    <span class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-white font-semibold peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary transition-all duration-200 select-none">Min</span>
+                  </label>
                 </div>
               </div>
               <div class="mb-4">
@@ -1147,6 +878,12 @@
                   </label>
                 </div>
               </div>
+              <div class="flex flex-col mb-4 w-64">  
+                <label for="habit-reminder" class="block text-white text-sm font-bold mb-2">Waktu Pengingat:</label>  
+                <input type="text" id="habit-reminder" class="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline">  
+              </div>  
+              
+              
               <button
                 type="submit"
                 class="w-full text-white bg-primary hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-blue-600 dark:focus:ring-blue-800"
@@ -1209,349 +946,714 @@
       </div>
     </div>
 
+   
+  <!-- Tambahkan di akhir <body> sebelum </html> -->
+<div id="habit-reminder-modal" class="fixed inset-0 z-50 hidden bg-black/40 flex items-center justify-center">
+  <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 max-w-xs w-full text-center">
+    <h3 class="text-lg font-semibold mb-2 text-gray-900 dark:text-white">Pengingat Kebiasaan</h3>
+    <p id="habit-reminder-modal-text" class="mb-4 text-gray-700 dark:text-gray-300"></p>
+    <button id="habit-reminder-modal-close" class="mt-2 px-4 py-2 bg-primary text-white rounded hover:bg-blue-600">Tutup</button>
+  </div>
+</div>
+
+
+
+
     <!-- Stats and Charts JS -->
     <script>
       // Fungsi untuk memperbarui statistik
       function updateStats() {
         const totalHabits = habitData.habits.length;
-        let totalCompleted = 0;
-        let totalTarget = 0;
-
-        habitData.habits.forEach((habit) => {
-          if (!habit.selectedDays) {
-            habit.selectedDays = [0, 1, 2, 3, 4, 5, 6];
-            habit.days = Array(7).fill(false);
-            habit.targetDays = 7;
-          }
-          totalCompleted += habit.completedDays;
-          totalTarget += habit.targetDays;
+        let totalCompleted = 0, totalTarget = 0;
+        habitData.habits.forEach(h => {
+          totalCompleted += h.completedDays;
+          totalTarget += h.targetDays;
         });
-
-        const overallCompletion = totalTarget > 0 ? Math.round((totalCompleted / totalTarget) * 100) : 0;
-
-        // Update pie chart completion percentage
+        const percent = totalTarget > 0 ? Math.round((totalCompleted / totalTarget) * 100) : 0;
         const pieChartPath = document.querySelector('svg path.text-primary');
-        if (pieChartPath) {
-          pieChartPath.setAttribute('stroke-dasharray', `${overallCompletion}, 100`);
-        }
-
-        // Update completion percentage text
+        if (pieChartPath) pieChartPath.setAttribute('stroke-dasharray', `${percent}, 100`);
         const completionText = document.querySelector('svg text');
-        if (completionText) {
-          completionText.textContent = `${overallCompletion}%`;
-        }
+        if (completionText) completionText.textContent = `${percent}%`;
       }
 
       // Fungsi untuk memperbarui diagram batang mingguan
       function updateWeeklyChart() {
         const chartContainer = document.getElementById('chart-bars');
         if (!chartContainer) return;
-
         chartContainer.innerHTML = '';
-        const dayLabels = ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Min'];
-
-        const dailyProgress = Array(7).fill(0);
-        const dailyTargets = Array(7).fill(0);
-
-        habitData.habits.forEach((habit) => {
-          if (!habit.selectedDays) {
-            habit.selectedDays = [0, 1, 2, 3, 4, 5, 6];
-            habit.days = Array(7).fill(false);
-            habit.targetDays = 7;
-          }
-          for (let i = 0; i < 7; i++) {
-            dailyTargets[i]++;
-            if (habit.days[i] === true) {
-              dailyProgress[i]++;
-            }
-          }
+        const dailyProgress = Array(7).fill(0), dailyTargets = Array(7).fill(0);
+        habitData.habits.forEach(h => {
+          h.selectedDays.forEach((d, i) => {
+            dailyTargets[d]++;
+            if (h.days[i]) dailyProgress[d]++;
+          });
         });
-
-        // Container untuk batang-batang dengan full height
         const barsContainer = document.createElement('div');
-        barsContainer.className = 'flex justify-between items-end w-full h-full';
-        chartContainer.appendChild(barsContainer);
-
-        // Buat batang untuk setiap hari
+        barsContainer.className = 'flex justify-between items-end w-full h-full gap-x-1 sm:gap-x-2';
         for (let i = 0; i < 7; i++) {
           const progress = dailyTargets[i] > 0 ? Math.round((dailyProgress[i] / dailyTargets[i]) * 100) : 0;
-
           const barContainer = document.createElement('div');
           barContainer.className = 'flex flex-col items-center relative h-full';
           barContainer.style.width = '12%';
-
-          // Container untuk batang target dan progress
           const barsWrapper = document.createElement('div');
-          barsWrapper.className = 'relative w-8 h-full';
-
-          // Batang target (latar belakang)
+          barsWrapper.className = 'relative w-5 h-full';
           const targetBar = document.createElement('div');
           targetBar.className = 'absolute inset-0 border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 bg-opacity-30 rounded-t-md';
-
-          // Batang progress mulai dari bawah
           const progressBar = document.createElement('div');
           progressBar.className = 'absolute bottom-0 inset-x-0 bg-primary rounded-t-md transition-all duration-300';
           progressBar.style.height = `${progress}%`;
-
-          // Label persentase
           const percentLabel = document.createElement('div');
           percentLabel.className = 'absolute -top-6 text-xs font-medium text-gray-600 dark:text-gray-300';
           percentLabel.textContent = `${progress}%`;
-
-          // Label hari
           const dayLabel = document.createElement('div');
           dayLabel.className = 'absolute -bottom-6 text-xs text-gray-600 dark:text-gray-400';
-          dayLabel.textContent = dayLabels[i];
-
+          dayLabel.textContent = daysOfWeek[i];
           barsWrapper.appendChild(targetBar);
           barsWrapper.appendChild(progressBar);
           barContainer.appendChild(percentLabel);
           barContainer.appendChild(barsWrapper);
           barContainer.appendChild(dayLabel);
-
           barsContainer.appendChild(barContainer);
         }
+        chartContainer.appendChild(barsContainer);
       }
-
       // Fungsi untuk memperbarui pie chart
       function updatePieChart() {
-        let totalCompleted = 0;
-        let totalTarget = 0;
-
-        habitData.habits.forEach((habit) => {
-          if (!habit.selectedDays) {
-            habit.selectedDays = [0, 1, 2, 3, 4, 5, 6];
-            habit.days = Array(7).fill(false);
-            habit.targetDays = 7;
-          }
-
-          totalCompleted += habit.completedDays;
-          totalTarget += habit.targetDays;
+        let totalCompleted = 0, totalTarget = 0;
+        habitData.habits.forEach(h => {
+          totalCompleted += h.completedDays;
+          totalTarget += h.targetDays;
         });
-
-        const completionPercentage = totalTarget > 0 ? Math.round((totalCompleted / totalTarget) * 100) : 0;
-
-        // Update weekly focus time
+        const percent = totalTarget > 0 ? Math.round((totalCompleted / totalTarget) * 100) : 0;
         const weeklyFocus = document.querySelector('.text-2xl.font-bold');
-        if (weeklyFocus) {
-          const hoursCompleted = (totalCompleted * 24) / 7; // Asumsi rata-rata 24 jam per minggu
-          weeklyFocus.textContent = `${hoursCompleted.toFixed(1)} jam`;
-        }
-
-        // Update progress bar
+        if (weeklyFocus) weeklyFocus.textContent = `${((totalCompleted * 24) / 7).toFixed(1)} jam`;
         const progressBar = document.querySelector('.bg-primary.h-4');
-        if (progressBar) {
-          progressBar.style.width = `${completionPercentage}%`;
-        }
+        if (progressBar) progressBar.style.width = `${percent}%`;
       }
+
+      // Modal utilitas
+      function showDeleteConfirmation(id) {
+        habitIdToDelete = id;
+        document.getElementById('konfirmasi-hapus-modal').classList.remove('opacity-0', 'pointer-events-none');
+      }
+      document.getElementById('konfirmasi-hapus').onclick = function() {
+        if (habitIdToDelete !== null) {
+          deleteHabit(habitIdToDelete);
+          habitIdToDelete = null;
+        }
+        document.getElementById('konfirmasi-hapus-modal').classList.add('opacity-0', 'pointer-events-none');
+      };
+      document.getElementById('batal-hapus').onclick =
+      document.getElementById('close-konfirmasi').onclick = function() {
+        habitIdToDelete = null;
+        document.getElementById('konfirmasi-hapus-modal').classList.add('opacity-0', 'pointer-events-none');
+      };
+
+      function showEditHabit(id) {
+        habitIdToEdit = id;
+        const h = habitData.habits.find(h => h.id === id);
+        if (!h) return;
+        document.getElementById('habit-name').value = h.name;
+        document.getElementById('habit-reminder').value = h.reminderTime || '';
+        const colorInputs = document.querySelectorAll('input[name="habit-color"]');
+        colorInputs.forEach(input => { input.checked = input.value === h.color; });
+        const dayCheckboxes = document.querySelectorAll('input[name="habit-days"]');
+        dayCheckboxes.forEach(cb => { cb.checked = h.selectedDays.includes(parseInt(cb.value)); });
+        document.getElementById('tambah-kebiasaan-modal').classList.remove('hidden');
+      }
+
     </script>
 
+    <!-- Modal Tambah Kebiasaan -->
+    <div
+      id="tambah-kebiasaan-modal"
+      class="fixed inset-0 z-50 hidden"
+      aria-hidden="true"
+    >
+      <div
+        class="fixed inset-0 bg-white/30 dark:bg-gray-900/30 backdrop-blur-sm backdrop-saturate-150 backdrop-brightness-110 transition-opacity"
+        id="modal-backdrop"
+      ></div>
+      <div class="fixed inset-0 z-10 overflow-y-auto">
+        <div class="flex min-h-screen items-center justify-center p-4 text-center sm:items-center sm:p-0">
+          <div class="relative transform overflow-hidden rounded-lg bg-white dark:bg-gray-800 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-md p-6">
+            <div class="flex justify-between items-center mb-4">
+              <h3 class="text-lg font-medium text-gray-900 dark:text-white">Tambah Kebiasaan Baru</h3>
+              <button
+                id="close-modal"
+                type="button"
+                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-700 dark:hover:text-white"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+            <form id="tambah-kebiasaan-form">
+              <div class="mb-4">
+                <label
+                  for="habit-name"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >Nama Kebiasaan</label
+                >
+                <input
+                  type="text"
+                  id="habit-name"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+                  placeholder="Contoh: Berolahraga"
+                  required
+                />
+              </div>   
+              <div class="mb-4">
+                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pilih Hari</label>
+                <div class="flex gap-2">
+                  <label aria-label="Senin" class="cursor-pointer">
+                    <input type="checkbox" name="habit-days" value="0" class="sr-only peer pointer-events-auto" />
+                    <span class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-white font-semibold peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary transition-all duration-200 select-none">Sen</span>
+                  </label>
+                  <label aria-label="Selasa" class="cursor-pointer">
+                    <input type="checkbox" name="habit-days" value="1" class="sr-only peer pointer-events-auto" />
+                    <span class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-white font-semibold peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary transition-all duration-200 select-none">Sel</span>
+                  </label>
+                  <label aria-label="Rabu" class="cursor-pointer">
+                    <input type="checkbox" name="habit-days" value="2" class="sr-only peer pointer-events-auto" />
+                    <span class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-white font-semibold peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary transition-all duration-200 select-none">Rab</span>
+                  </label>
+                  <label aria-label="Kamis" class="cursor-pointer">
+                    <input type="checkbox" name="habit-days" value="3" class="sr-only peer pointer-events-auto" />
+                    <span class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-white font-semibold peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary transition-all duration-200 select-none">Kam</span>
+                  </label>
+                  <label aria-label="Jumat" class="cursor-pointer">
+                    <input type="checkbox" name="habit-days" value="4" class="sr-only peer pointer-events-auto" />
+                    <span class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-white font-semibold peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary transition-all duration-200 select-none">Jum</span>
+                  </label>
+                  <label aria-label="Sabtu" class="cursor-pointer">
+                    <input type="checkbox" name="habit-days" value="5" class="sr-only peer pointer-events-auto" />
+                    <span class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-white font-semibold peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary transition-all duration-200 select-none">Sab</span>
+                  </label>
+                  <label aria-label="Minggu" class="cursor-pointer">
+                    <input type="checkbox" name="habit-days" value="6" class="sr-only peer pointer-events-auto" />
+                    <span class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-white font-semibold peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary transition-all duration-200 select-none">Min</span>
+                  </label>
+                </div>
+              </div>
+              <div class="mb-4">
+                <label
+                  for="habit-color"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >Warna</label
+                >
+                <div class="flex space-x-2">
+                  <label class="cursor-pointer">
+                    <input
+                      type="radio"
+                      name="habit-color"
+                      value="bg-primary"
+                      class="sr-only"
+                      checked
+                    />
+                    <div class="w-6 h-6 bg-primary rounded-full border-2 border-transparent hover:border-gray-300"></div>
+                  </label>
+                  <label class="cursor-pointer">
+                    <input
+                      type="radio"
+                      name="habit-color"
+                      value="bg-secondary"
+                      class="sr-only"
+                    />
+                    <div class="w-6 h-6 bg-secondary rounded-full border-2 border-transparent hover:border-gray-300"></div>
+                  </label>
+                  <label class="cursor-pointer">
+                    <input
+                      type="radio"
+                      name="habit-color"
+                      value="bg-accent"
+                      class="sr-only"
+                    />
+                    <div class="w-6 h-6 bg-accent rounded-full border-2 border-transparent hover:border-gray-300"></div>
+                  </label>
+                  <label class="cursor-pointer">
+                    <input
+                      type="radio"
+                      name="habit-color"
+                      value="bg-purple-500"
+                      class="sr-only"
+                    />
+                    <div class="w-6 h-6 bg-purple-500 rounded-full border-2 border-transparent hover:border-gray-300"></div>
+                  </label>
+                  <label class="cursor-pointer">
+                    <input
+                      type="radio"
+                      name="habit-color"
+                      value="bg-green-500"
+                      class="sr-only"
+                    />
+                    <div class="w-6 h-6 bg-green-500 rounded-full border-2 border-transparent hover:border-gray-300"></div>
+                  </label>
+                </div>
+              </div>
+              <div class="flex flex-col mb-4 w-64">  
+                <label for="habit-reminder" class="block text-white text-sm font-bold mb-2">Waktu Pengingat:</label>  
+                <input type="text" id="habit-reminder" class="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline">  
+              </div>  
+              
+              
+              <button
+                type="submit"
+                class="w-full text-white bg-primary hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-blue-600 dark:focus:ring-blue-800"
+              >
+                Tambah Kebiasaan
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Konfirmasi Hapus -->
+    <div
+      id="konfirmasi-hapus-modal"
+      class="fixed inset-0 z-50 opacity-0 pointer-events-none"
+    >
+      <div
+        class="absolute inset-0 backdrop-blur-xl bg-white/30 dark:bg-gray-900/30 backdrop-saturate-150 backdrop-brightness-110"
+        id="konfirmasi-backdrop"
+      ></div>
+      <div class="flex items-center justify-center min-h-screen p-4">
+        <div class="bg-white dark:bg-gray-800 rounded-lg p-6 w-full max-w-md relative z-10">
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="text-lg font-medium text-gray-900 dark:text-white">Konfirmasi Penghapusan</h3>
+            <button
+              id="close-konfirmasi"
+              class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-700 dark:hover:text-white"
+            >
+              <svg
+                class="w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <p class="text-gray-700 dark:text-gray-300 mb-6">Apakah Anda yakin ingin menghapus kebiasaan ini?</p>
+          <div class="flex justify-end space-x-3">
+            <button
+              id="batal-hapus"
+              class="px-4 py-2 text-sm font-medium text-gray-500 bg-gray-100 rounded-lg border border-gray-200 hover:bg-gray-200 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:bg-gray-600"
+            >
+              Batal
+            </button>
+            <button
+              id="konfirmasi-hapus"
+              class="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 focus:z-10 focus:ring-2 focus:ring-red-300 dark:bg-red-500 dark:hover:bg-red-600"
+            >
+              Hapus
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   
+  <!-- Tambahkan di akhir <body> sebelum </html> -->
+<div id="habit-reminder-modal" class="fixed inset-0 z-50 hidden bg-black/40 flex items-center justify-center">
+  <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 max-w-xs w-full text-center">
+    <h3 class="text-lg font-semibold mb-2 text-gray-900 dark:text-white">Pengingat Kebiasaan</h3>
+    <p id="habit-reminder-modal-text" class="mb-4 text-gray-700 dark:text-gray-300"></p>
+    <button id="habit-reminder-modal-close" class="mt-2 px-4 py-2 bg-primary text-white rounded hover:bg-blue-600">Tutup</button>
+  </div>
+</div>
+
+
+
+
+    <!-- Stats and Charts JS -->
     <script>
-      // Fungsi untuk toggle status penyelesaian kebiasaan
-      function toggleHabitCompletion(habitId, dayIndex) {
-        const habit = habitData.habits.find((h) => h.id === habitId);
-        if (!habit) return;
-
-        // Toggle status penyelesaian
-        if (habit.days[dayIndex] === true) {
-          habit.days[dayIndex] = false;
-          habit.completedDays--;
-        } else {
-          habit.days[dayIndex] = true;
-          habit.completedDays++;
-        }
-
-        // Simpan perubahan
-        saveHabitData();
-      }
-    </script>
-
-    <script>
-      // Function to create a new habit
-      function createHabit(name, targetDays, color, selectedDays) {
-        const habit = {
-          id: Date.now(), // Use timestamp as unique ID
-          name,
-          targetDays,
-          completedDays: 0,
-          color,
-          selectedDays,
-          days: Array(selectedDays.length).fill(false), // Initialize array for each day of the week
-        };
-
-        habitData.habits.push(habit);
-        saveHabitData();
-      }
-
-      // Function to update weekly progress
-      function updateWeeklyProgress() {
-        const chartBars = document.getElementById('chart-bars');
-        if (!chartBars) return;
-
-        let weeklyData = Array(7)
-          .fill(0)
-          .map(() => ({
-            completed: 0,
-            total: 0,
-          }));
-
-        habitData.habits.forEach((habit) => {
-          if (!habit.selectedDays) {
-            habit.selectedDays = [0, 1, 2, 3, 4, 5, 6];
-            habit.days = Array(7).fill(false);
-            habit.targetDays = 7;
-          }
-          habit.days.forEach((isCompleted, dayIndex) => {
-            if (isCompleted) {
-              weeklyData[dayIndex].completed++;
-            }
-            weeklyData[dayIndex].total++;
-          });
-        });
-
-        // Update chart UI
-        updateWeeklyChart();
-        updatePieChart();
-      }
-
-      // Event listener for the add habit form
-      document.getElementById('tambah-kebiasaan-form')?.addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        const name = document.getElementById('habit-name').value;
-        const colorInput = document.querySelector('input[name="habit-color"]:checked');
-        const color = colorInput ? colorInput.value : 'bg-primary';
-
-        // ambil hari terpilih
-        const dayCheckboxes = document.querySelectorAll('input[name="habit-days"]:checked');
-        const selectedDays = Array.from(dayCheckboxes).map((cb) => parseInt(cb.value));
-        const targetDays = selectedDays.length;
-
-        if (targetDays === 0) {
-          alert('Pilih minimal satu hari!');
-          return;
-        }
-
-        createHabit(name, targetDays, color, selectedDays);
-
-        // Close modal and reset form
-        const modal = document.getElementById('tambah-kebiasaan-modal');
-        modal.classList.add('hidden');
-        this.reset();
-      });
-    </script>
-
-    <script>
-      // Function to delete habit
-      function deleteHabit(habitId) {
-        const index = habitData.habits.findIndex((h) => h.id === habitId);
-        if (index !== -1) {
-          habitData.habits.splice(index, 1);
-          saveHabitData();
-        }
-      }
-
-      // Function to update stats and charts
+      // Fungsi untuk memperbarui statistik
       function updateStats() {
-        const totalCompleted = habitData.habits.reduce((sum, habit) => sum + habit.completedDays, 0);
-        const totalTarget = habitData.habits.reduce((sum, habit) => sum + habit.targetDays, 0);
-        const completionPercentage = totalTarget > 0 ? Math.round((totalCompleted / totalTarget) * 100) : 0;
-
-        // Update completion percentage in the pie chart
-        const pieChartPath = document.querySelector('svg path.stroke-current.text-primary');
-        if (pieChartPath) {
-          pieChartPath.setAttribute('stroke-dasharray', `${completionPercentage}, 100`);
-        }
-        const pieChartText = document.querySelector('svg text');
-        if (pieChartText) {
-          pieChartText.textContent = `${completionPercentage}%`;
-        }
-      }
-
-      // Function to initialize the app
-      function initializeApp() {
-        const modal = document.getElementById('tambah-kebiasaan-modal');
-        const openModalBtn = document.getElementById('tambah-kebiasaan-btn');
-        const closeModalBtn = document.getElementById('close-modal');
-        const modalBackdrop = document.getElementById('modal-backdrop');
-        // Modal controls
-        openModalBtn?.addEventListener('click', () => modal.classList.remove('hidden'));
-        closeModalBtn?.addEventListener('click', () => modal.classList.add('hidden'));
-
-        // Solusi utama: klik di luar form (area modal, bukan form) menutup modal
-        modal.addEventListener('mousedown', function (e) {
-          // Tutup modal jika klik pada backdrop atau area kosong di luar form
-          if (
-            e.target === modal ||
-            e.target === modalBackdrop ||
-            e.target.classList.contains('fixed') // klik pada area fixed di luar form
-          ) {
-            modal.classList.add('hidden');
-          }
+        const totalHabits = habitData.habits.length;
+        let totalCompleted = 0, totalTarget = 0;
+        habitData.habits.forEach(h => {
+          totalCompleted += h.completedDays;
+          totalTarget += h.targetDays;
         });
-
-        loadHabitData();
+        const percent = totalTarget > 0 ? Math.round((totalCompleted / totalTarget) * 100) : 0;
+        const pieChartPath = document.querySelector('svg path.text-primary');
+        if (pieChartPath) pieChartPath.setAttribute('stroke-dasharray', `${percent}, 100`);
+        const completionText = document.querySelector('svg text');
+        if (completionText) completionText.textContent = `${percent}%`;
       }
 
-      // Initialize app when DOM is loaded
-      document.addEventListener('DOMContentLoaded', initializeApp);
+      // Fungsi untuk memperbarui diagram batang mingguan
+      function updateWeeklyChart() {
+        const chartContainer = document.getElementById('chart-bars');
+        if (!chartContainer) return;
+        chartContainer.innerHTML = '';
+        const dailyProgress = Array(7).fill(0), dailyTargets = Array(7).fill(0);
+        habitData.habits.forEach(h => {
+          h.selectedDays.forEach((d, i) => {
+            dailyTargets[d]++;
+            if (h.days[i]) dailyProgress[d]++;
+          });
+        });
+        const barsContainer = document.createElement('div');
+        barsContainer.className = 'flex justify-between items-end w-full h-full gap-x-1 sm:gap-x-2';
+        for (let i = 0; i < 7; i++) {
+          const progress = dailyTargets[i] > 0 ? Math.round((dailyProgress[i] / dailyTargets[i]) * 100) : 0;
+          const barContainer = document.createElement('div');
+          barContainer.className = 'flex flex-col items-center relative h-full';
+          barContainer.style.width = '12%';
+          const barsWrapper = document.createElement('div');
+          barsWrapper.className = 'relative w-5 h-full';
+          const targetBar = document.createElement('div');
+          targetBar.className = 'absolute inset-0 border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 bg-opacity-30 rounded-t-md';
+          const progressBar = document.createElement('div');
+          progressBar.className = 'absolute bottom-0 inset-x-0 bg-primary rounded-t-md transition-all duration-300';
+          progressBar.style.height = `${progress}%`;
+          const percentLabel = document.createElement('div');
+          percentLabel.className = 'absolute -top-6 text-xs font-medium text-gray-600 dark:text-gray-300';
+          percentLabel.textContent = `${progress}%`;
+          const dayLabel = document.createElement('div');
+          dayLabel.className = 'absolute -bottom-6 text-xs text-gray-600 dark:text-gray-400';
+          dayLabel.textContent = daysOfWeek[i];
+          barsWrapper.appendChild(targetBar);
+          barsWrapper.appendChild(progressBar);
+          barContainer.appendChild(percentLabel);
+          barContainer.appendChild(barsWrapper);
+          barContainer.appendChild(dayLabel);
+          barsContainer.appendChild(barContainer);
+        }
+        chartContainer.appendChild(barsContainer);
+      }
+      // Fungsi untuk memperbarui pie chart
+      function updatePieChart() {
+        let totalCompleted = 0, totalTarget = 0;
+        habitData.habits.forEach(h => {
+          totalCompleted += h.completedDays;
+          totalTarget += h.targetDays;
+        });
+        const percent = totalTarget > 0 ? Math.round((totalCompleted / totalTarget) * 100) : 0;
+        const weeklyFocus = document.querySelector('.text-2xl.font-bold');
+        if (weeklyFocus) weeklyFocus.textContent = `${((totalCompleted * 24) / 7).toFixed(1)} jam`;
+        const progressBar = document.querySelector('.bg-primary.h-4');
+        if (progressBar) progressBar.style.width = `${percent}%`;
+      }
+
+      // Modal utilitas
+      function showDeleteConfirmation(id) {
+        habitIdToDelete = id;
+        document.getElementById('konfirmasi-hapus-modal').classList.remove('opacity-0', 'pointer-events-none');
+      }
+      document.getElementById('konfirmasi-hapus').onclick = function() {
+        if (habitIdToDelete !== null) {
+          deleteHabit(habitIdToDelete);
+          habitIdToDelete = null;
+        }
+        document.getElementById('konfirmasi-hapus-modal').classList.add('opacity-0', 'pointer-events-none');
+      };
+      document.getElementById('batal-hapus').onclick =
+      document.getElementById('close-konfirmasi').onclick = function() {
+        habitIdToDelete = null;
+        document.getElementById('konfirmasi-hapus-modal').classList.add('opacity-0', 'pointer-events-none');
+      };
+
+      function showEditHabit(id) {
+        habitIdToEdit = id;
+        const h = habitData.habits.find(h => h.id === id);
+        if (!h) return;
+        document.getElementById('habit-name').value = h.name;
+        document.getElementById('habit-reminder').value = h.reminderTime || '';
+        const colorInputs = document.querySelectorAll('input[name="habit-color"]');
+        colorInputs.forEach(input => { input.checked = input.value === h.color; });
+        const dayCheckboxes = document.querySelectorAll('input[name="habit-days"]');
+        dayCheckboxes.forEach(cb => { cb.checked = h.selectedDays.includes(parseInt(cb.value)); });
+        document.getElementById('tambah-kebiasaan-modal').classList.remove('hidden');
+      }
+
     </script>
 
+    <!-- Core JS -->
     <script>
-      // Fungsi untuk memperbarui data habit completion dan menyimpannya
-      function updateHabitCompletion(habitId, dayIndex) {
-        const habit = habitData.habits.find((h) => h.id === habitId);
-        if (!habit) return;
+      // Sumber data utama
+let habitData = { habits: [] };
+let habitIdToDelete = null;
+let habitIdToEdit = null;
+const DEFAULT_DAYS = [0, 1, 2, 3, 4, 5, 6];
+const daysOfWeek = ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Min'];
+const tambahKebiasaanForm = document.getElementById('tambah-kebiasaan-form');
 
-        if (!habit.days) {
-          habit.days = Array(7).fill(false);
-        }
+// Utilitas: normalisasi habit agar selalu valid
+function normalizeHabit(habit) {
+  if (!habit.selectedDays) habit.selectedDays = [...DEFAULT_DAYS];
+  if (!habit.days || habit.days.length !== habit.selectedDays.length) habit.days = Array(habit.selectedDays.length).fill(false);
+  if (!habit.targetDays) habit.targetDays = habit.selectedDays.length;
+  if (!habit.completedDays) habit.completedDays = habit.days.filter(Boolean).length;
+  return habit;
+}
 
-        // Toggle completion status
-        habit.days[dayIndex] = !habit.days[dayIndex];
+// CRUD utama
+function saveHabitData() {
+  localStorage.setItem('habitData', JSON.stringify(habitData));
+  renderAll();
+}
+function loadHabitData() {
+  const saved = localStorage.getItem('habitData');
+  habitData = saved ? JSON.parse(saved) : { habits: [] };
+  habitData.habits = habitData.habits.map(normalizeHabit);
+}
+function createHabit(name, color, selectedDays, reminderTime) {
+  habitData.habits.push(normalizeHabit({
+    id: Date.now(),
+    name,
+    color,
+    selectedDays,
+    days: Array(selectedDays.length).fill(false),
+    targetDays: selectedDays.length,
+    completedDays: 0,
+    reminderTime: reminderTime || '',
+  }));
+  saveHabitData();
+}
+function updateHabit(id, { name, color, selectedDays, reminderTime }) {
+  const h = habitData.habits.find(h => h.id === id);
+  if (!h) return;
+  h.name = name;
+  h.color = color;
+  h.selectedDays = selectedDays;
+  h.targetDays = selectedDays.length;
+  h.reminderTime = reminderTime;
+  if (!h.days || h.days.length !== selectedDays.length) {
+    h.days = Array(selectedDays.length).fill(false);
+    h.completedDays = 0;
+  }
+  saveHabitData();
+}
+function deleteHabit(id) {
+  habitData.habits = habitData.habits.filter(h => h.id !== id);
+  saveHabitData();
+}
+function toggleHabitCompletion(habitId, dayIndex) {
+  const h = habitData.habits.find(h => h.id === habitId);
+  if (!h) return;
+  h.days[dayIndex] = !h.days[dayIndex];
+  h.completedDays = h.days.filter(Boolean).length;
+  saveHabitData();
+}
 
-        // Update completedDays count based on checked days
-        habit.completedDays = habit.days.filter((day) => day === true).length;
+// Render utama
+function renderAll() {
+  renderHabitList();
+  updateStats();
+  updateWeeklyChart();
+  updatePieChart();
+}
 
-        // Save changes
-        saveHabitData();
+function renderHabitList() {
+  const container = document.getElementById('habit-list-container');
+  if (!container) return;
 
-        // Update UI and charts
-        updateWeeklyProgress();
-        updateStats();
-        updateWeeklyChart();
-        updatePieChart();
-      }
+  container.innerHTML = '';
 
-      // Function to initialize habit tracking
-      function initializeHabitTracking() {
-        // Load existing data
-        const savedData = localStorage.getItem('habitData');
-        if (savedData) {
-          habitData = JSON.parse(savedData);
+  if (!habitData.habits || habitData.habits.length === 0) {
+    container.innerHTML = `
+  <div class="text-center py-8 text-gray-500 dark:text-gray-400">
+    Belum ada kebiasaan. Klik tombol "Tambah" untuk mulai mencatat kebiasaan Anda.
+  </div>
+`;
+    return;
+  }
 
-          // Ensure all habits have the days array
-          habitData.habits.forEach((habit) => {
-            if (!habit.selectedDays) {
-              habit.selectedDays = [0, 1, 2, 3, 4, 5, 6];
-              habit.days = Array(7).fill(false);
-              habit.targetDays = 7;
-            }
+  habitData.habits.forEach(habit => {
+    const h = normalizeHabit(habit);
+    const el = document.createElement('div');
+    el.className = 'bg-gray-50 dark:bg-gray-800 rounded-lg p-4 flex flex-col gap-4 mb-3';
+    el.innerHTML = `
+      <div class='flex items-center justify-between'>
+        <div class='flex items-center gap-3 flex-1'>
+          <div>
+            <h4 class='font-medium text-gray-900 dark:text-white'>${h.name}</h4>
+            <p class='text-sm text-gray-500 dark:text-gray-400'>${h.completedDays}/${h.targetDays} hari</p>
+          </div>
+        </div>
+        <div class='flex items-center gap-4'>
+          <div class='w-32 bg-gray-200 dark:bg-gray-700 rounded-full h-2'>
+            <div class='${h.color} h-2 rounded-full transition-all duration-300' style='width: ${(h.completedDays / h.targetDays) * 100}%'></div>
+          </div>
+          <button onclick='showEditHabit(${h.id})' aria-label='Edit kebiasaan' class='p-2 rounded hover:bg-blue-100 dark:hover:bg-blue-900 text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 mr-2 focus:outline-none focus:ring-2 focus:ring-blue-400'>
+            <svg xmlns='http://www.w3.org/2000/svg' class='w-5 h-5' fill='none' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2'><path stroke-linecap='round' stroke-linejoin='round' d='M12 20h9'/><path stroke-linecap='round' stroke-linejoin='round' d='M16.5 3.5a2.121 2.121 0 113 3L7 19.5 3 21l1.5-4L16.5 3.5z'/></svg>
+          </button>
+          <button onclick='showDeleteConfirmation(${h.id})' aria-label='Hapus kebiasaan' class='p-2 rounded hover:bg-red-100 dark:hover:bg-red-900 text-red-600 hover:text-red-700 dark:text-red-500 dark:hover:text-red-400 focus:outline-none focus:ring-2 focus:ring-red-400'>
+            <svg xmlns='http://www.w3.org/2000/svg' class='w-5 h-5' fill='none' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2'><polyline points='3 6 5 6 21 6'/><path d='M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2'/><line x1='10' y1='11' x2='10' y2='17'/><line x1='14' y1='11' x2='14' y2='17'/></svg>
+          </button>
+        </div>
+      </div>
+      <div class='flex flex-row flex-wrap gap-10'>
+        ${h.selectedDays.map((dayIdx, i) => `
+          <div class='flex flex-col items-center'>
+            <div class='w-8 h-8 flex items-center justify-center rounded-lg cursor-pointer ${h.days[i] ? h.color + ' text-white' : 'bg-gray-100 dark:bg-gray-700'} hover:opacity-80 transition-all duration-200' onclick='toggleHabitCompletion(${h.id},${i})'>
+              ${h.days[i] ? `<svg class='w-5 h-5' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 13l4 4L19 7'></path></svg>` : ''}
+            </div>
+            <span class='text-xs text-gray-500 dark:text-white mt-1'>${daysOfWeek[dayIdx]}</span>
+          </div>
+        `).join('')}
+      </div>
+    `;
+    container.appendChild(el);
+  });
 
-            if (!habit.days) {
-              habit.days = Array(7).fill(false);
-            }
-          });
-        }
+  // Update diagrams after rendering
+  updateStats();
+  updateWeeklyChart();
+  updatePieChart();
+}
 
-        renderHabitList();
-        updateStats();
-        updateWeeklyChart();
-        updatePieChart();
-      }
+// Chart & statistik
+function updateStats() {
+  const totalHabits = habitData.habits.length;
+  let totalCompleted = 0, totalTarget = 0;
+  habitData.habits.forEach(h => {
+    totalCompleted += h.completedDays;
+    totalTarget += h.targetDays;
+  });
+  const percent = totalTarget > 0 ? Math.round((totalCompleted / totalTarget) * 100) : 0;
+  const pieChartPath = document.querySelector('svg path.text-primary');
+  if (pieChartPath) pieChartPath.setAttribute('stroke-dasharray', `${percent}, 100`);
+  const completionText = document.querySelector('svg text');
+  if (completionText) completionText.textContent = `${percent}%`;
+}
+function updateWeeklyChart() {
+  const chartContainer = document.getElementById('chart-bars');
+  if (!chartContainer) return;
+  chartContainer.innerHTML = '';
+  const dailyProgress = Array(7).fill(0), dailyTargets = Array(7).fill(0);
+  habitData.habits.forEach(h => {
+    h.selectedDays.forEach((d, i) => {
+      dailyTargets[d]++;
+      if (h.days[i]) dailyProgress[d]++;
+    });
+  });
+  const barsContainer = document.createElement('div');
+  barsContainer.className = 'flex justify-between items-end w-full h-full gap-x-1 sm:gap-x-2';
+  for (let i = 0; i < 7; i++) {
+    const progress = dailyTargets[i] > 0 ? Math.round((dailyProgress[i] / dailyTargets[i]) * 100) : 0;
+    const barContainer = document.createElement('div');
+    barContainer.className = 'flex flex-col items-center relative h-full';
+    barContainer.style.width = '12%';
+    const barsWrapper = document.createElement('div');
+    barsWrapper.className = 'relative w-5 h-full';
+    const targetBar = document.createElement('div');
+    targetBar.className = 'absolute inset-0 border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 bg-opacity-30 rounded-t-md';
+    const progressBar = document.createElement('div');
+    progressBar.className = 'absolute bottom-0 inset-x-0 bg-primary rounded-t-md transition-all duration-300';
+    progressBar.style.height = `${progress}%`;
+    const percentLabel = document.createElement('div');
+    percentLabel.className = 'absolute -top-6 text-xs font-medium text-gray-600 dark:text-gray-300';
+    percentLabel.textContent = `${progress}%`;
+    const dayLabel = document.createElement('div');
+    dayLabel.className = 'absolute -bottom-6 text-xs text-gray-600 dark:text-gray-400';
+    dayLabel.textContent = daysOfWeek[i];
+    barsWrapper.appendChild(targetBar);
+    barsWrapper.appendChild(progressBar);
+    barContainer.appendChild(percentLabel);
+    barContainer.appendChild(barsWrapper);
+    barContainer.appendChild(dayLabel);
+    barsContainer.appendChild(barContainer);
+  }
+  chartContainer.appendChild(barsContainer);
+}
+function updatePieChart() {
+  let totalCompleted = 0, totalTarget = 0;
+  habitData.habits.forEach(h => {
+    totalCompleted += h.completedDays;
+    totalTarget += h.targetDays;
+  });
+  const percent = totalTarget > 0 ? Math.round((totalCompleted / totalTarget) * 100) : 0;
+  const weeklyFocus = document.querySelector('.text-2xl.font-bold');
+  if (weeklyFocus) weeklyFocus.textContent = `${((totalCompleted * 24) / 7).toFixed(1)} jam`;
+  const progressBar = document.querySelector('.bg-primary.h-4');
+  if (progressBar) progressBar.style.width = `${percent}%`;
+}
 
-      // Initialize habit tracking when DOM loads
-      document.addEventListener('DOMContentLoaded', initializeHabitTracking);
+// Modal utilitas
+function showDeleteConfirmation(id) {
+  habitIdToDelete = id;
+  document.getElementById('konfirmasi-hapus-modal').classList.remove('opacity-0', 'pointer-events-none');
+}
+document.getElementById('konfirmasi-hapus').onclick = function() {
+  if (habitIdToDelete !== null) {
+    deleteHabit(habitIdToDelete);
+    habitIdToDelete = null;
+  }
+  document.getElementById('konfirmasi-hapus-modal').classList.add('opacity-0', 'pointer-events-none');
+};
+document.getElementById('batal-hapus').onclick =
+document.getElementById('close-konfirmasi').onclick = function() {
+  habitIdToDelete = null;
+  document.getElementById('konfirmasi-hapus-modal').classList.add('opacity-0', 'pointer-events-none');
+};
+
+function showEditHabit(id) {
+  habitIdToEdit = id;
+  const h = habitData.habits.find(h => h.id === id);
+  if (!h) return;
+  document.getElementById('habit-name').value = h.name;
+  document.getElementById('habit-reminder').value = h.reminderTime || '';
+  const colorInputs = document.querySelectorAll('input[name="habit-color"]');
+  colorInputs.forEach(input => { input.checked = input.value === h.color; });
+  const dayCheckboxes = document.querySelectorAll('input[name="habit-days"]');
+  dayCheckboxes.forEach(cb => { cb.checked = h.selectedDays.includes(parseInt(cb.value)); });
+  document.getElementById('tambah-kebiasaan-modal').classList.remove('hidden');
+}
+
+// Form tambah/edit habit
+tambahKebiasaanForm?.addEventListener('submit', function (e) {
+  e.preventDefault();
+  const name = document.getElementById('habit-name').value;
+  const colorInput = document.querySelector('input[name="habit-color"]:checked');
+  const color = colorInput ? colorInput.value : 'bg-primary';
+  const dayCheckboxes = document.querySelectorAll('input[name="habit-days"]:checked');
+  const selectedDays = Array.from(dayCheckboxes).map(cb => parseInt(cb.value));
+  if (selectedDays.length === 0) { alert('Pilih minimal satu hari!'); return; }
+  const reminderTime = document.getElementById('habit-reminder').value;
+  if (habitIdToEdit !== null) {
+    updateHabit(habitIdToEdit, { name, color, selectedDays, reminderTime });
+    habitIdToEdit = null;
+  } else {
+    createHabit(name, color, selectedDays, reminderTime);
+  }
+  document.getElementById('tambah-kebiasaan-modal').classList.add('hidden');
+  this.reset();
+});
+
+// Modal tambah
+const openModalBtn = document.getElementById('tambah-kebiasaan-btn');
+const closeModalBtn = document.getElementById('close-modal');
+const modalBackdrop = document.getElementById('modal-backdrop');
+openModalBtn?.addEventListener('click', () => document.getElementById('tambah-kebiasaan-modal').classList.remove('hidden'));
+closeModalBtn?.addEventListener('click', () => document.getElementById('tambah-kebiasaan-modal').classList.add('hidden'));
+modalBackdrop?.addEventListener('click', () => document.getElementById('tambah-kebiasaan-modal').classList.add('hidden'));
+
+// Inisialisasi
+function initializeApp() {
+  loadHabitData();
+  renderAll();
+}
+document.addEventListener('DOMContentLoaded', initializeApp);
     </script>
 
     <script>
@@ -1580,6 +1682,97 @@
             colorLabels[index].classList.remove('border-transparent');
             colorLabels[index].classList.add('border-gray-900', 'dark:border-white');
           }
+        });
+      });
+    </script>
+
+
+
+  
+      
+
+    <script>
+        // Notifikasi & Pengingat Dasar
+        if ('Notification' in window && Notification.permission !== 'granted') {
+          Notification.requestPermission();
+        } 
+
+        document.getElementById('habit-reminder-modal-close').onclick = function() {
+          const modal = document.getElementById('habit-reminder-modal');
+          const habitId = modal.dataset.habitId;
+          if (habitId) {
+            const dismissed = getDismissedHabits();
+            if (!dismissed.includes(Number(habitId))) {
+              dismissed.push(Number(habitId));
+              setDismissedHabits(dismissed);
+            }
+          }
+          modal.classList.add('hidden');
+          modal.dataset.habitId = '';
+        };
+
+        
+  
+        setInterval(() => {
+          const now = new Date();
+          habitData.habits?.forEach(habit => {
+            if (!habit.reminderTime) return;
+            const [h, m] = habit.reminderTime.split(':');
+            if (parseInt(h) === now.getHours() && parseInt(m) === now.getMinutes()) {
+              // Cek jika hari ini adalah hari habit
+              const dayIdx = (now.getDay() === 0 ? 6 : now.getDay() - 1);
+              if (habit.selectedDays?.includes(dayIdx) && !habit.days[habit.selectedDays.indexOf(dayIdx)]) {
+                showHabitReminder(habit);
+              }
+            }
+          });
+        }, 5000);
+    </script>
+
+    <script>
+      function getDismissedHabits() {
+        return JSON.parse(localStorage.getItem('dismissedHabits') || '[]');
+      }
+      function setDismissedHabits(arr) {
+        localStorage.setItem('dismissedHabits', JSON.stringify(arr));
+      }
+    </script>
+
+    <script>
+      function playNotificationSound() {
+        const audio = new Audio('../public/notif.wav');
+        audio.play();
+      }
+
+      function showHabitReminder(habit) {
+        const dismissed = getDismissedHabits();
+        if (dismissed.includes(habit.id)) return;
+
+        playNotificationSound();
+
+        if ('Notification' in window && Notification.permission === 'granted') {
+          new Notification('Pengingat Kebiasaan', {
+            body: `Saatnya melakukan: ${habit.name}`,
+            icon: '/favicon.ico',
+          });
+        } else {
+          const modal = document.getElementById('habit-reminder-modal');
+          const modalText = document.getElementById('habit-reminder-modal-text');
+          modalText.textContent = `Saatnya melakukan: ${habit.name}`;
+          modal.classList.remove('hidden');
+          modal.dataset.habitId = habit.id;
+        }
+      }
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        flatpickr("#habit-reminder", {
+          enableTime: true,
+          noCalendar: true,
+          dateFormat: "H:i",
+          time_24hr: true,
+          minuteIncrement: 1,
+          allowInput: true
         });
       });
     </script>
