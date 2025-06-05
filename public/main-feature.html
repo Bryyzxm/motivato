@@ -10,6 +10,14 @@
       content="width=device-width, initial-scale=1.0"
     />
 
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.10/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.10/plugin/utc.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.10/plugin/timezone.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.10/plugin/weekday.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.10/plugin/localeData.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.10/plugin/customParseFormat.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.10/locale/id.js"></script>
+
     <!-- Tambahkan ini untuk memastikan dark mode berfungsi -->
     <script>
       // On page load or when changing themes, best to add inline in `head` to avoid FOUC
@@ -47,6 +55,14 @@
     <!-- Flatpickr CSS and JS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.10/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.10/plugin/utc.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.10/plugin/timezone.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.10/plugin/weekday.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.10/plugin/localeData.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.10/plugin/customParseFormat.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.10/locale/id.js"></script>
   </head>
   <body class="bg-white dark:bg-gray-900 font-poppins transition-all duration-200">
     <nav class="bg-white border-gray-200 dark:bg-gray-900 relative drop-shadow-sm dark:lg:drop-shadow-lg">
@@ -314,7 +330,7 @@
         <!-- Dashboard Grid -->
         <div class="grid grid-cols-1 gap-6">
           <!-- Habit List -->
-          <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md md:col-span-5">
+          <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md max-w-full w-full mx-auto">
             <div class="flex justify-between items-center mb-4">
               <h3 class="text-xl font-semibold text-dark dark:text-white">Daftar Kebiasaan</h3>
               <button
@@ -346,162 +362,191 @@
               <!-- Habit Items akan ditampilkan di sini -->
             </div>
           </div>
+        </div>
+        <!-- Chart Row: Bar Chart & Pie Chart -->
+        <div class="max-w-full w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+          <!-- Progress Diagram (Bar Chart) -->
+          <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md max-w-full w-full mx-auto">
+            <h3 class="text-xl font-semibold text-dark dark:text-white mb-4">Progres Mingguan</h3>
+            <div class="flex items-center justify-between mb-4">
+              <select class="bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 rounded-md px-3 py-1">
+                <option>7 Hari Terakhir</option>
+                <option>30 Hari Terakhir</option>
+                <option>3 Bulan Terakhir</option>
+              </select>
+              <button class="text-primary dark:text-blue-400 font-medium flex items-center">
+                <svg
+                  class="w-4 h-4 mr-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+                  ></path>
+                </svg>
+                Ekspor Data
+              </button>
+            </div>
 
-          <!-- Chart Row: Bar Chart & Pie Chart -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <!-- Progress Diagram (Bar Chart) -->
-            <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md max-w-2xl w-full mx-auto">
-              <h3 class="text-xl font-semibold text-dark dark:text-white mb-4">Progres Mingguan</h3>
-              <div class="flex items-center justify-between mb-4">
-                <select class="bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 rounded-md px-3 py-1">
-                  <option>7 Hari Terakhir</option>
-                  <option>30 Hari Terakhir</option>
-                  <option>3 Bulan Terakhir</option>
-                </select>
-                <button class="text-primary dark:text-blue-400 font-medium flex items-center">
+            <div class="relative h-64">
+              <!-- Grid lines container -->
+              <div class="absolute inset-0 flex flex-col justify-between px-10 py-6 pointer-events-none">
+                <div class="w-full border-t border-gray-200 dark:border-gray-700">
+                  <span class="absolute -left-3 -mt-2.5 text-xs text-gray-500 dark:text-gray-400">100%</span>
+                </div>
+                <div class="w-full border-t border-gray-200 dark:border-gray-700">
+                  <span class="absolute -left-3 -mt-2.5 text-xs text-gray-500 dark:text-gray-400">75%</span>
+                </div>
+                <div class="w-full border-t border-gray-200 dark:border-gray-700">
+                  <span class="absolute -left-3 -mt-2.5 text-xs text-gray-500 dark:text-gray-400">50%</span>
+                </div>
+                <div class="w-full border-t border-gray-200 dark:border-gray-700">
+                  <span class="absolute -left-3 -mt-2.5 text-xs text-gray-500 dark:text-gray-400">25%</span>
+                </div>
+                <div class="w-full border-t border-gray-200 dark:border-gray-700">
+                  <span class="absolute -left-3 -mt-2.5 text-xs text-gray-500 dark:text-gray-400">0%</span>
+                </div>
+              </div>
+              <!-- Chart bars container -->
+              <div class="absolute inset-0 px-12 py-6">
+                <div
+                  id="chart-bars"
+                  class="relative w-full h-full flex gap-x-1 sm:gap-x-2 justify-between items-end"
+                ></div>
+              </div>
+            </div>
+          </div>
+          <!-- Pie Chart -->
+          <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md w-full mx-auto flex flex-col justify-center">
+            <div class="bg-white dark:bg-gray-800 rounded-lg p-4 mb-2 border border-gray-200 dark:border-gray-700 md:col-span-1">
+              <h4 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Kebiasaan Terselesaikan</h4>
+              <div class="flex items-center justify-center">
+                <!-- Mockup Circle Chart -->
+                <div class="relative w-32 h-32 ">
                   <svg
-                    class="w-4 h-4 mr-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 36 36"
+                    class="w-full h-full"
                   >
                     <path
+                      class="stroke-current text-gray-200 dark:text-gray-700"
+                      stroke-width="3.8"
+                      fill="none"
+                      d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                    />
+                    <path
+                      class="stroke-current text-primary"
+                      stroke-width="3.8"
                       stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
-                    ></path>
+                      fill="none"
+                      stroke-dasharray="60, 100"
+                      d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                    />
+                    <text
+                      x="18"
+                      y="20.5"
+                      text-anchor="middle"
+                      class="text-xs font-semibold fill-current text-gray-800 dark:text-white"
+                    ></text>
                   </svg>
-                  Ekspor Data
-                </button>
-              </div>
-
-              <div class="relative h-64">
-                <!-- Grid lines container -->
-                <div class="absolute inset-0 flex flex-col justify-between px-10 py-6 pointer-events-none">
-                  <div class="w-full border-t border-gray-200 dark:border-gray-700">
-                    <span class="absolute -left-3 -mt-2.5 text-xs text-gray-500 dark:text-gray-400">100%</span>
-                  </div>
-                  <div class="w-full border-t border-gray-200 dark:border-gray-700">
-                    <span class="absolute -left-3 -mt-2.5 text-xs text-gray-500 dark:text-gray-400">75%</span>
-                  </div>
-                  <div class="w-full border-t border-gray-200 dark:border-gray-700">
-                    <span class="absolute -left-3 -mt-2.5 text-xs text-gray-500 dark:text-gray-400">50%</span>
-                  </div>
-                  <div class="w-full border-t border-gray-200 dark:border-gray-700">
-                    <span class="absolute -left-3 -mt-2.5 text-xs text-gray-500 dark:text-gray-400">25%</span>
-                  </div>
-                  <div class="w-full border-t border-gray-200 dark:border-gray-700">
-                    <span class="absolute -left-3 -mt-2.5 text-xs text-gray-500 dark:text-gray-400">0%</span>
-                  </div>
-                </div>
-                <!-- Chart bars container -->
-                <div class="absolute inset-0 px-12 py-6">
-                  <div
-                    id="chart-bars"
-                    class="relative w-full h-full flex gap-x-1 sm:gap-x-2 justify-between items-end"
-                  ></div>
                 </div>
               </div>
             </div>
-            <!-- Pie Chart -->
-            <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md max-w-xl w-full mx-auto flex flex-col justify-center">
-              <div class="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700 md:col-span-1">
-                <h4 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Kebiasaan Terselesaikan</h4>
-                <div class="flex items-center justify-center">
-                  <!-- Mockup Circle Chart -->
-                  <div class="relative h-32 w-32">
-                    <svg
-                      viewBox="0 0 36 36"
-                      class="w-full h-full"
-                    >
-                      <path
-                        class="stroke-current text-gray-200 dark:text-gray-700"
-                        stroke-width="3.8"
-                        fill="none"
-                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                      />
-                      <path
-                        class="stroke-current text-primary"
-                        stroke-width="3.8"
-                        stroke-linecap="round"
-                        fill="none"
-                        stroke-dasharray="60, 100"
-                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                      />
-                      <text
-                        x="18"
-                        y="20.5"
-                        text-anchor="middle"
-                        class="text-xs font-semibold fill-current text-gray-800 dark:text-white"
-                      ></text>
-                    </svg>
-                  </div>
-                </div>
-              </div>
 
-              <div class="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700 mt-6 md:mt-0 md:col-span-2">
-                <h4 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Waktu Fokus Mingguan</h4>
-                <div class="flex items-center justify-between flex-wrap">
-                  <div class="w-full md:w-auto mb-3 md:mb-0">
-                    <div class="text-2xl font-bold text-gray-800 dark:text-white">12.5 jam</div>
-                    <div class="text-sm text-gray-500 dark:text-gray-400">dari target 20 jam</div>
-                  </div>
-                  <div class="w-full md:w-1/2 bg-gray-200 dark:bg-gray-700 rounded-full h-4">
-                    <div
-                      class="bg-primary h-4 rounded-full"
-                      style="width: 62.5%"
-                    ></div>
-                  </div>
+            <div class="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700 mt-6 md:mt-0 md:col-span-2">
+              <h4 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Waktu Fokus Mingguan</h4>
+              <div class="flex items-center justify-between flex-wrap">
+                <div class="w-full md:w-auto mb-3 md:mb-0">
+                  <div class="text-2xl font-bold text-gray-800 dark:text-white">12.5 jam</div>
+                  <div class="text-sm text-gray-500 dark:text-gray-400">dari target 20 jam</div>
+                </div>
+                <div class="w-full md:w-1/2 bg-gray-200 dark:bg-gray-700 rounded-full h-4">
+                  <div
+                    class="bg-primary h-4 rounded-full"
+                    style="width: 62.5%"
+                  ></div>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-       
-   <!-- Kalender Kebiasaan -->
-<div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md mt-6">
-  <div class="flex justify-between items-center mb-4">
-    <h3 class="text-xl font-semibold text-dark dark:text-white">Kalender Kebiasaan</h3>
-    <div class="flex space-x-2">
-      <button id="prev-month" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-        </svg>
-      </button>
-      <span id="calendar-month-year" class="text-gray-600 dark:text-gray-300 font-medium"></span>
-      <button id="next-month" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-        </svg>
-      </button>
-    </div>
-  </div>
-  
-  <!-- Header hari dalam seminggu -->
-  <div class="grid grid-cols-7 gap-1 mb-2">
-    <div class="text-center text-sm font-medium text-gray-500 dark:text-gray-400">Sen</div>
-    <div class="text-center text-sm font-medium text-gray-500 dark:text-gray-400">Sel</div>
-    <div class="text-center text-sm font-medium text-gray-500 dark:text-gray-400">Rab</div>
-    <div class="text-center text-sm font-medium text-gray-500 dark:text-gray-400">Kam</div>
-    <div class="text-center text-sm font-medium text-gray-500 dark:text-gray-400">Jum</div>
-    <div class="text-center text-sm font-medium text-gray-500 dark:text-gray-400">Sab</div>
-    <div class="text-center text-sm font-medium text-gray-500 dark:text-gray-400">Min</div>
-  </div>
-  
-  <!-- Grid kalender -->
-  <div id="calendar-days" class="grid grid-cols-7 gap-1"></div>
-  
-  <!-- Legend kebiasaan -->
-  <div class="mt-4">
-    <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Kebiasaan:</p>
-    <div id="habit-legend" class="flex flex-wrap gap-3"></div>
-  </div>
-</div> 
+    <!-- Kalender Kebiasaan -->
+  <div class="max-w-full w-full mx-auto bg-white dark:text-white dark:bg-gray-900 p-4 sm:p-6 rounded-lg shadow-lg mt-16 sm:mt-12">
+      <div class="flex items-center justify-between mb-4 sm:mb-6">
+          <button id="prevMonth" class="p-2 rounded-full hover:bg-tertiary dark:hover:bg-accent/30 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 sm:w-6 sm:h-6 text-dark dark:text-white">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+              </svg>
+          </button>
+          <h2 id="currentMonthYear" class="text-lg sm:text-xl font-semibold text-dark dark:text-white"></h2>
+          <button id="nextMonth" class="p-2 rounded-full hover:bg-tertiary dark:hover:bg-accent/30 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 sm:w-6 sm:h-6 text-dark dark:text-white">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+              </svg>
+          </button>
+      </div>
 
-        
+      <div class="grid grid-cols-7 gap-1 sm:gap-2 text-center">
+          <div class="font-medium text-dark/70 dark:text-white/70 text-xs sm:text-sm">Min</div>
+          <div class="font-medium text-dark/70 dark:text-white/70 text-xs sm:text-sm">Sen</div>
+          <div class="font-medium text-dark/70 dark:text-white/70 text-xs sm:text-sm">Sel</div>
+          <div class="font-medium text-dark/70 dark:text-white/70 text-xs sm:text-sm">Rab</div>
+          <div class="font-medium text-dark/70 dark:text-white/70 text-xs sm:text-sm">Kam</div>
+          <div class="font-medium text-dark/70 dark:text-white/70 text-xs sm:text-sm">Jum</div>
+          <div class="font-medium text-dark/70 dark:text-white/70 text-xs sm:text-sm">Sab</div>
+          <template id="dateCellTemplate">
+              <div class="date-cell p-1 sm:p-2 border border-tertiary dark:border-accent/50 rounded-md cursor-pointer hover:bg-tertiary/80 dark:hover:bg-accent/20 transition-colors h-10 sm:h-12 flex items-center justify-center text-xs sm:text-sm">
+                  <span class="date-number text-dark dark:text-white"></span>
+              </div>
+          </template>
+      </div>
+      <div id="calendarDates" class="grid grid-cols-7 gap-1 sm:gap-2 mt-2"></div>
+
+      <div class="mt-4 sm:mt-6 text-center space-y-3 sm:space-y-0 sm:space-x-3 sm:flex sm:justify-center">
+          <button id="getQuoteButton" class="w-full sm:w-auto bg-primary hover:bg-opacity-90 text-white font-semibold py-2 px-3 sm:px-4 rounded-lg shadow-md transition-all duration-300 ease-in-out text-sm sm:text-base active:animate-pop-in">
+              ✨ Dapatkan Kutipan
+          </button>
+          <button id="planDayButton" class="w-full sm:w-auto bg-accent hover:bg-opacity-90 text-white font-semibold py-2 px-3 sm:px-4 rounded-lg shadow-md transition-all duration-300 ease-in-out text-sm sm:text-base active:animate-pop-in">
+              ✨ Rencanakan Hari
+          </button>
+      </div>
+
+      <div id="quoteSection" class="mt-4">
+           <div id="loadingSpinnerQuote" class="hidden w-[30px] h-[30px] mx-auto border-4 rounded-full animate-spin border-tertiary dark:border-accent/50 border-t-primary dark:border-t-primary"></div>
+          <div id="quoteDisplay" class="p-3 sm:p-4 bg-tertiary dark:bg-tertiary rounded-lg text-dark dark:text-dark min-h-[50px] flex items-center justify-center text-center text-sm sm:text-base">
+              Pilih tanggal dan klik tombol untuk mendapatkan kutipan.
+          </div>
+      </div>
+  </div>
+
+  <div id="planDayModal" class="fixed inset-0 overflow-y-auto h-full w-full flex items-center justify-center hidden z-50 p-4 transition-opacity duration-300 ease-in-out opacity-0 bg-background/10 dark:bg-dark-bg-body/50 backdrop-blur-sm">
+      <div class="bg-background dark:bg-dark dark:border-white p-4 sm:p-6 rounded-lg shadow-xl w-full max-w-md transform scale-95 transition-transform duration-300 ease-in-out">
+          <div class="flex justify-between items-center mb-4">
+              <h3 class="text-lg font-semibold text-dark dark:text-white">Rencanakan Hari Anda</h3>
+              <button id="closeModalButton" class="text-dark/70 dark:text-white/70 hover:opacity-100">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                  </svg>
+              </button>
+          </div>
+          <p class="mb-2 text-sm text-dark/70 dark:text-white/70">Tanggal: <span id="modalSelectedDate" class="font-semibold"></span></p>
+          <div class="mb-4">
+              <label for="dayTheme" class="block text-sm font-medium text-dark dark:text-white mb-1">Tema hari ini:</label>
+              <input type="text" id="dayTheme" name="dayTheme" class="mt-1 block w-full px-3 py-2 border border-tertiary dark:border-accent/50 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm text-dark dark:text-white bg-background dark:bg-dark placeholder:text-dark/60 dark:placeholder:text-white/60" placeholder="Contoh: Produktif bekerja, Relaksasi">
+          </div>
+          <button id="getActivitiesButton" class="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition-all duration-300 ease-in-out text-sm sm:text-base active:animate-pop-in">
+              Dapatkan Ide Kegiatan ✨
+          </button>
+          <div id="loadingSpinnerActivities" class="hidden w-[30px] h-[30px] mx-auto mt-3 border-4 rounded-full animate-spin border-tertiary dark:border-accent/50 border-t-primary dark:border-t-primary"></div>
+          <div id="activitiesDisplay" class="mt-4 p-3 bg-tertiary dark:bg-tertiary rounded-lg text-dark dark:text-dark min-h-[70px] text-sm sm:text-base">
+          </div>
+      </div>
+  </div>
 
     <footer class="bg-white rounded-lg shadow-lg m-4 dark:bg-gray-800">
       <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
@@ -539,222 +584,6 @@
         </ul>
       </div>
     </footer>
-
-
-    <!-- Modal Tambah Kebiasaan -->
-    <div
-      id="tambah-kebiasaan-modal"
-      class="fixed inset-0 z-50 hidden"
-      aria-hidden="true"
-    >
-      <div
-        class="fixed inset-0 bg-white/30 dark:bg-gray-900/30 backdrop-blur-sm backdrop-saturate-150 backdrop-brightness-110 transition-opacity"
-        id="modal-backdrop"
-      ></div>
-      <div class="fixed inset-0 z-10 overflow-y-auto">
-        <div class="flex min-h-screen items-center justify-center p-4 text-center sm:items-center sm:p-0">
-          <div class="relative transform overflow-hidden rounded-lg bg-white dark:bg-gray-800 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-md p-6">
-            <div class="flex justify-between items-center mb-4">
-              <h3 class="text-lg font-medium text-gray-900 dark:text-white">Tambah Kebiasaan Baru</h3>
-              <button
-                id="close-modal"
-                type="button"
-                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-700 dark:hover:text-white"
-              >
-                <svg
-                  class="w-5 h-5"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-              </button>
-            </div>
-            <form id="tambah-kebiasaan-form">
-              <div class="mb-4">
-                <label
-                  for="habit-name"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  >Nama Kebiasaan</label
-                >
-                <input
-                  type="text"
-                  id="habit-name"
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
-                  placeholder="Contoh: Berolahraga"
-                  required
-                />
-              </div>   
-              <div class="mb-4">
-                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pilih Hari</label>
-                <div class="flex gap-2">
-                  <label aria-label="Senin" class="cursor-pointer">
-                    <input type="checkbox" name="habit-days" value="0" class="sr-only peer pointer-events-auto" />
-                    <span class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-white font-semibold peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary transition-all duration-200 select-none">Sen</span>
-                  </label>
-                  <label aria-label="Selasa" class="cursor-pointer">
-                    <input type="checkbox" name="habit-days" value="1" class="sr-only peer pointer-events-auto" />
-                    <span class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-white font-semibold peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary transition-all duration-200 select-none">Sel</span>
-                  </label>
-                  <label aria-label="Rabu" class="cursor-pointer">
-                    <input type="checkbox" name="habit-days" value="2" class="sr-only peer pointer-events-auto" />
-                    <span class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-white font-semibold peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary transition-all duration-200 select-none">Rab</span>
-                  </label>
-                  <label aria-label="Kamis" class="cursor-pointer">
-                    <input type="checkbox" name="habit-days" value="3" class="sr-only peer pointer-events-auto" />
-                    <span class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-white font-semibold peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary transition-all duration-200 select-none">Kam</span>
-                  </label>
-                  <label aria-label="Jumat" class="cursor-pointer">
-                    <input type="checkbox" name="habit-days" value="4" class="sr-only peer pointer-events-auto" />
-                    <span class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-white font-semibold peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary transition-all duration-200 select-none">Jum</span>
-                  </label>
-                  <label aria-label="Sabtu" class="cursor-pointer">
-                    <input type="checkbox" name="habit-days" value="5" class="sr-only peer pointer-events-auto" />
-                    <span class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-white font-semibold peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary transition-all duration-200 select-none">Sab</span>
-                  </label>
-                  <label aria-label="Minggu" class="cursor-pointer">
-                    <input type="checkbox" name="habit-days" value="6" class="sr-only peer pointer-events-auto" />
-                    <span class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-white font-semibold peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary transition-all duration-200 select-none">Min</span>
-                  </label>
-                </div>
-              </div>
-              <div class="mb-4">
-                <label
-                  for="habit-color"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  >Warna</label
-                >
-                <div class="flex space-x-2">
-                  <label class="cursor-pointer">
-                    <input
-                      type="radio"
-                      name="habit-color"
-                      value="bg-primary"
-                      class="sr-only"
-                      checked
-                    />
-                    <div class="w-6 h-6 bg-primary rounded-full border-2 border-transparent hover:border-gray-300"></div>
-                  </label>
-                  <label class="cursor-pointer">
-                    <input
-                      type="radio"
-                      name="habit-color"
-                      value="bg-secondary"
-                      class="sr-only"
-                    />
-                    <div class="w-6 h-6 bg-secondary rounded-full border-2 border-transparent hover:border-gray-300"></div>
-                  </label>
-                  <label class="cursor-pointer">
-                    <input
-                      type="radio"
-                      name="habit-color"
-                      value="bg-accent"
-                      class="sr-only"
-                    />
-                    <div class="w-6 h-6 bg-accent rounded-full border-2 border-transparent hover:border-gray-300"></div>
-                  </label>
-                  <label class="cursor-pointer">
-                    <input
-                      type="radio"
-                      name="habit-color"
-                      value="bg-purple-500"
-                      class="sr-only"
-                    />
-                    <div class="w-6 h-6 bg-purple-500 rounded-full border-2 border-transparent hover:border-gray-300"></div>
-                  </label>
-                  <label class="cursor-pointer">
-                    <input
-                      type="radio"
-                      name="habit-color"
-                      value="bg-green-500"
-                      class="sr-only"
-                    />
-                    <div class="w-6 h-6 bg-green-500 rounded-full border-2 border-transparent hover:border-gray-300"></div>
-                  </label>
-                </div>
-              </div>
-              <div class="flex flex-col mb-4 w-64">  
-                <label for="habit-reminder" class="block text-white text-sm font-bold mb-2">Waktu Pengingat:</label>  
-                <input type="text" id="habit-reminder" class="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline">  
-              </div>  
-              
-              
-              <button
-                type="submit"
-                class="w-full text-white bg-primary hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-blue-600 dark:focus:ring-blue-800"
-              >
-                Tambah Kebiasaan
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal Konfirmasi Hapus -->
-    <div
-      id="konfirmasi-hapus-modal"
-      class="fixed inset-0 z-50 opacity-0 pointer-events-none"
-    >
-      <div
-        class="absolute inset-0 backdrop-blur-xl bg-white/30 dark:bg-gray-900/30 backdrop-saturate-150 backdrop-brightness-110"
-        id="konfirmasi-backdrop"
-      ></div>
-      <div class="flex items-center justify-center min-h-screen p-4">
-        <div class="bg-white dark:bg-gray-800 rounded-lg p-6 w-full max-w-md relative z-10">
-          <div class="flex justify-between items-center mb-4">
-            <h3 class="text-lg font-medium text-gray-900 dark:text-white">Konfirmasi Penghapusan</h3>
-            <button
-              id="close-konfirmasi"
-              class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-700 dark:hover:text-white"
-            >
-              <svg
-                class="w-5 h-5"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </button>
-          </div>
-          <p class="text-gray-700 dark:text-gray-300 mb-6">Apakah Anda yakin ingin menghapus kebiasaan ini?</p>
-          <div class="flex justify-end space-x-3">
-            <button
-              id="batal-hapus"
-              class="px-4 py-2 text-sm font-medium text-gray-500 bg-gray-100 rounded-lg border border-gray-200 hover:bg-gray-200 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:bg-gray-600"
-            >
-              Batal
-            </button>
-            <button
-              id="konfirmasi-hapus"
-              class="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 focus:z-10 focus:ring-2 focus:ring-red-300 dark:bg-red-500 dark:hover:bg-red-600"
-            >
-              Hapus
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-   
-  <!-- Tambahkan di akhir <body> sebelum </html> -->
-<div id="habit-reminder-modal" class="fixed inset-0 z-50 hidden bg-black/40 flex items-center justify-center">
-  <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 max-w-xs w-full text-center">
-    <h3 class="text-lg font-semibold mb-2 text-gray-900 dark:text-white">Pengingat Kebiasaan</h3>
-    <p id="habit-reminder-modal-text" class="mb-4 text-gray-700 dark:text-gray-300"></p>
-    <button id="habit-reminder-modal-close" class="mt-2 px-4 py-2 bg-primary text-white rounded hover:bg-blue-600">Tutup</button>
-  </div>
-</div>
 
 
     <!-- Modal Tambah Kebiasaan -->
